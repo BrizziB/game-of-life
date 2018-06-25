@@ -53,12 +53,12 @@
         <div id="generation-info" class="info settings-label">
             <p> Generation Number: {{gameController.generation}}</p>
         </div>
-        <button type="button" class="button" id="start-game" *ngIf="gameController.isRunning()==false" (click)="startGame(); isStartClicked=true"
+        <button type="button" class="button" id="start-game" *ngIf="gameController.isRunning()==false" (click)="startGame();"
             [disabled]="isStartClicked"> Start </button>
-        <button type="button" class="button" id="pause-game" *ngIf="gameController.isRunning()==true" (click)="pauseGame(); isStartClicked=false">
+        <button type="button" class="button" id="pause-game" *ngIf="gameController.isRunning()==true" (click)="pauseGame();">
             Pause </button>
-        <button type="button" class="button" id="stop-game" (click)="stopGame(); isStartClicked=false"> Stop </button>
-        <button type="button" class="button" id="reset-game" (click)="gameController.resetGame(); isStartClicked=false"> Clear </button>
+        <button type="button" class="button" id="stop-game" (click)="stopGame();"> Stop </button>
+        <button type="button" class="button" id="reset-game" (click)="gameController.resetGame();"> Clear </button>
     </div>
 
 </div>
