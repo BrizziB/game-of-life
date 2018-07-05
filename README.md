@@ -11,4 +11,4 @@ Installation:
     - ng init
     - ng serve
     
-- at this point the project should be running and responding at http://localhost:4200 
+- now the project should be running and responding at http://localhost:4200 
