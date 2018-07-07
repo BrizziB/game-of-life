@@ -30,18 +30,22 @@ export class GameBoardComponent implements OnInit {
         this.gameController.setGameGrid(this.gameGrid);
     }
 
+    // funzione richiamata quando si imposta la checkbox dell'aging
     setShowingAge(show) {
         this.gameGrid.showAge(show);
     }
     
+     // richiama la funzione - in gameController - che avvia il gioco
     startGame() {
         this.gameController.startGame();
     }
 
+    // richiama la funzione - in gameController - che arresta il gioco
     stopGame() {
         this.gameController.stopGame();
     }
 
+    // richiama la funzione - in gameController - che sospende il gioco
     pauseGame() {
         this.gameController.pauseGame();
     }

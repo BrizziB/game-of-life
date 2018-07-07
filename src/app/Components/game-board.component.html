@@ -9,6 +9,7 @@
         </div>
         <div class="setting-container container-big">
             <p class="settings-label"> Generation speed: </p>
+            <!-- lo slider che imposta l'intervallo fra le generazioni -->
             <input type="range" min="100" max="1000" value="gameController.intervalTime" class="slider" (change)="gameController.changeSpeed($event.target.value)">
  
         </div>
@@ -16,6 +17,7 @@
         <div class="setting-container">
             <p class="settings-label">
                 Show cell's aging
+                <!-- la checkbox per impostare se l'aging delle celle è mostrato o no -->
                 <input class="checkbox-custom" type="checkbox" value="true" (change)="setShowingAge($event.target.checked)">
                 <br>
             </p>
@@ -23,6 +25,7 @@
         <div id="dropdown-container">
             <div id="drops-left" class="setting-container dropdown">
                 <button id="dropbtn-left" class="button" >Grid Size</button>
+                <!-- menù per impostare le dimensioni della griglia di gioco -->
                 <div id="dropdown-content-left">
                     <button class="menu-button" (click)="gameGrid.changeGridDimension(32); ">Small (32x32)</button>
                     <button class="menu-button" (click)="gameGrid.changeGridDimension(40);">Medium (40x40)</button>
@@ -32,6 +35,7 @@
             </div>
             <div id="drops-right" class="setting-container dropdown">
                 <button id="dropbtn-right" class=" button">Presets</button>
+                <!-- menù per impostare una configurazione preset -->
                 <div id="dropdown-content-right">
                     <button class="menu-button" (click)="gameController.stopGame(); gameGrid.preset('die hard 1')">DieHard 1</button>
                     <button class="menu-button" (click)="gameController.stopGame(); gameGrid.preset('endless growth')">Endless growth</button>

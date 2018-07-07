@@ -12,18 +12,18 @@ import Position from '../Model/Position';
 export class GameGridComponent implements OnInit, Injectable {
     public numRows: number;
     public numCols: number;
-    public gridHeight: number;  // height expressed in pixels
-    public gridWidth: number;   // width expressed in pixels
+    public gridHeight: number;  // altezza della griglia in pixels
+    public gridWidth: number;   // larghezza della griglia in pixels
     public cellHeight: number;
     public cellWidth: number;
     public cellBorder: number;
     public cells: CellComponent[];
-    public gridMap: Map<number, CellComponent>;
+    public gridMap: Map<number, CellComponent>; // mappa ogni cella in un numero, serve per calcolare i vicini
     public showingAge: boolean;
 
 
     constructor() {
-        // valori di default iniziali 
+        // imposto dei valori di default iniziali 
         this.numRows = 40;
         this.numCols = 40;
         this.gridHeight = 640;
@@ -36,6 +36,7 @@ export class GameGridComponent implements OnInit, Injectable {
 
 
     ngOnInit() {
+        // all'inizializzazione calcolo la dimensione delle celle e inizalizzo la griglia di gioco
         this.setUpCellsSize();
         this.setUpGrid();
     }
@@ -180,6 +181,8 @@ export class GameGridComponent implements OnInit, Injectable {
         }
     }
 
+    // la funzione richiamata quando l'utente richiede di cambiare la dimensione della griglia usando l'apposito menù.
+    // si stoppa il gioco ed inizializza nuovamente la griglia di gioco, con numero di celle e dimensione di celle richiesto
     changeGridDimension(numCells: number) {
         this.cells = [];
         this.numRows = numCells;
@@ -190,11 +193,13 @@ export class GameGridComponent implements OnInit, Injectable {
         this.showAge(this.showingAge);
     }
 
+    // calcola la dimensione delle celle in base al loro numero ed alla dimensione della griglia
     setUpCellsSize() {
         this.cellHeight = Math.floor(this.gridHeight / this.numRows) - 2 * this.cellBorder;
         this.cellWidth = Math.floor(this.gridWidth / this.numCols) - 2 * this.cellBorder;
     }
 
+    // resetta lo stato di tutte le celle a quello inziale
     resetCellsStatus() {
         this.cells.forEach(cell => {
             cell.reset();

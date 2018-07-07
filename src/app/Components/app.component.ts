@@ -6,8 +6,10 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+// la classe del componente principale che contiene tutti gli altri, non fa niente, imposta solo il titolo
 export class AppComponent implements OnInit {
-  title = 'GameOfLife';
+  title = 'Conway GameOfLife';
 
 
 

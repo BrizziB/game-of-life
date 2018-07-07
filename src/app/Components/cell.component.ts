@@ -19,6 +19,7 @@ export class CellComponent {
     private trackAging: boolean;
     public colour = 'rgba(235, 235, 235, 0.5)';
 
+    // inizializzazione di ogni cella
     constructor() {
         this.living = false;
         this.age = 0;
@@ -27,10 +28,13 @@ export class CellComponent {
         this.trackAging = false;
     }
 
+    // gestisce l'evento di click sulla cella - cambia lo stato ed aggiorna il colore
     public clicked() {
         this.toggleStatus();
         this.updateColour();
     }
+
+    // applica la logica di aggiornamento dello stato (all'avanzamento di generazione) nel caso di cella Alive
     public updateStatusAs_Alive(num: number) {
         if (num < 2 || num > 3) {
             this.willBeAlive = false;
@@ -38,17 +42,21 @@ export class CellComponent {
             this.willBeAlive = true;
         }
     }
+    // applica la logica di aggiornamento dello stato (all'avanzamento di generazione) nel caso di cella Dead
     public updateStausAs_Dead(num: number) {
         if (num === 3) {
             this.willBeAlive = true;
         }
     }
+    // setter della posizione
     public setPosition(position: Position) {
         this.position = position;
     }
+    // getter della posizione
     public getPosition() {
         return this.position;
     }
+
     public getStatus() {
         return this.living;
     }
@@ -66,6 +74,7 @@ export class CellComponent {
         this.trackAging = track;
     }
 
+    // reset della cella, resetta colore, stato futuro, stato attuale, età
     public reset() {
         this.resetColour();
         this.willBeAlive = false;
@@ -77,6 +86,7 @@ export class CellComponent {
         this.colour = 'rgba(235, 235, 235, 0.5)';
     }
 
+    // gestione dei colori della cella, il colore tiene conto dell'età e viene calcolato dalla funzione ageColour()
     public updateColour() {
         if (this.living) {
             if (this.trackAging) {
